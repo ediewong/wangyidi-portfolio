@@ -2,17 +2,17 @@ import Link from "next/link";
 import { siteConfig } from "@/lib/site-data";
 
 const navigation = [
-  { href: "/", label: "Home" },
-  { href: "/work", label: "Work" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
+  { href: "/#works", label: "Works" },
+  { href: "/#services", label: "Services" },
+  { href: "/#about", label: "About" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 px-4 pt-4 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
-        <div className="paper-panel flex items-center justify-between gap-4 rounded-full px-4 py-3 sm:px-6">
+        <div className="section-shell flex items-center justify-between gap-4 rounded-full px-4 py-3 sm:px-6">
           <Link href="/" className="flex min-w-0 items-center gap-3">
             <span className="hidden text-xs uppercase tracking-[0.32em] text-[var(--muted)] sm:inline-flex">
               Portfolio
@@ -27,7 +27,7 @@ export function SiteHeader() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-sm text-[var(--muted)] hover:text-[var(--ink)]"
+                className="text-sm text-[var(--muted)] transition hover:text-[var(--ink)]"
               >
                 {item.label}
               </Link>
@@ -35,7 +35,7 @@ export function SiteHeader() {
           </nav>
 
           <a className="solid-link !px-4 !py-2.5 !text-sm" href={siteConfig.email}>
-            开始联系
+            Say hello
           </a>
         </div>
       </div>
