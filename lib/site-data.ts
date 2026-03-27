@@ -50,7 +50,7 @@ export const siteConfig = {
     "擅长把零散作品整理成清晰、有记忆点、适合公开传播的在线叙事。第一版先强调定位、案例和联系入口，避免网站做得很满，但别人看不懂你是谁。",
   email: "mailto:hello@yourdomain.com",
   siteUrl:
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://your-portfolio.vercel.app",
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://wangyidi-portfolio.vercel.app",
   socials: [
     {
       label: "Email",
