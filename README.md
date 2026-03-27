@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio Site
 
-## Getting Started
+一个用 `Next.js` 搭建、可直接部署到 `Vercel` 的作品集网站骨架。
 
-First, run the development server:
+## 本地运行
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+打开 [http://localhost:3000](http://localhost:3000) 查看效果。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 先改哪里
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+最重要的内容集中在 [`lib/site-data.ts`](./lib/site-data.ts)：
 
-## Learn More
+- 你的名字、定位、简介
+- 联系方式和社交链接
+- 3 个项目案例内容
+- About 页面里的介绍和原则
 
-To learn more about Next.js, take a look at the following resources:
+页面结构已经准备好：
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `/` 首页
+- `/work` 作品列表
+- `/work/[slug]` 项目详情
+- `/about` 关于我
+- `/contact` 联系方式
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 部署到 Vercel
 
-## Deploy on Vercel
+1. 把代码推到 GitHub 仓库。
+2. 登录 [Vercel](https://vercel.com/)，点击 `Add New...` -> `Project`。
+3. 导入你的 GitHub 仓库，Framework 选择会自动识别为 `Next.js`。
+4. 在环境变量里添加 `NEXT_PUBLIC_SITE_URL`，值填你的线上地址。
+   例子：`https://your-name.vercel.app`
+5. 点击部署。
+6. 部署完成后，在 Vercel 的 `Domains` 里绑定你自己的域名。
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 上线前检查
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- 把示例文案替换成你自己的真实项目内容
+- 把 `mailto:`、GitHub、LinkedIn、Behance 链接换成你自己的
+- 如果有简历 PDF，可以放到 `public/` 目录并更新链接
+- 用手机和电脑各看一遍版式
+- 重新运行一次 `npm run build`
