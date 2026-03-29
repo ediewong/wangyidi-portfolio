@@ -61,40 +61,69 @@ export type Project = {
   accent: string;
 };
 
+export type Experience = {
+  period: string;
+  title: string;
+  company: string;
+  companyIconColor: string;
+  companyIconLetter: string;
+  description: string;
+};
+
+export type WorkflowTool = {
+  name: string;
+  emoji: string;
+  bg: string;
+};
+
+export type Venture = {
+  name: string;
+  description: string;
+  url: string;
+  iconBg: string;
+  iconText: string;
+};
+
+export type Writing = {
+  date: string;
+  title: string;
+  readTime: string;
+};
+
+export type PersonalSection = {
+  text: string;
+  spotify: {
+    trackName: string;
+    artist: string;
+    albumArtColor: string;
+    albumArtEmoji: string;
+    url: string;
+  };
+  instagramUrl: string;
+};
+
+export type NavSocialLink = {
+  label: string;
+  href: string;
+  handle: string;
+};
+
 export const siteConfig = {
   name: "Edie Wang",
-  role: "Brand Designer / Creative Developer",
-  basedIn: "Shanghai, China · Open to remote collaborations",
-  availability: "Available for selected commissions in 2026",
+  role: "Product Designer",
+  estYear: "2026",
+  location: "Beijing",
+  bio: "嗨，我是 Edie，拥有 7 年 SaaS 产品设计经验，专注 AI 与复杂工具类产品设计，曾主导多个产品从 0 到 1 的整体体验设计。擅长将 AI 能力转化为清晰可用的产品体验，推动设计在业务中的落地与增长。我热爱分享设计相关的内容，喜欢热烈的生活，很高兴在这里认识你。",
+  email: "wedie0312@gmail.com",
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://edie.live",
+  // kept for existing pages
   heroTitle: "Designing quiet, memorable digital worlds for brands with taste.",
   heroText:
     "我把品牌策略、视觉设计和网页落地串成一个完整体验，让陌生人第一次打开页面时，就能迅速感受到品牌的语气、质地和记忆点。",
   intro:
     "这版首页参考了你发来的 Framer 作品集节奏，但我没有照搬模板，也没有填假奖项或假客户评价，而是把它改造成一套适合你长期继续替换内容的结构。",
-  email: "mailto:hello@edie.live",
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://edie.live",
-  socials: [
-    {
-      label: "Email",
-      href: "mailto:hello@edie.live",
-      note: "最重要的主联系入口，建议换成你真正常用的邮箱。",
-    },
-    {
-      label: "GitHub",
-      href: "https://github.com/ediewong",
-      note: "如果你会前端或交互开发，这里可以放公开项目与源码。",
-    },
-    {
-      label: "LinkedIn",
-      href: "https://www.linkedin.com/in/yourname",
-      note: "适合求职、国际合作，或让招聘方快速补充了解你。",
-    },
-    {
-      label: "Behance",
-      href: "https://www.behance.net/yourname",
-      note: "如果你之后会同步平面、品牌、视觉案例，这里很适合作为外部作品入口。",
-    },
-  ] satisfies SocialLink[],
+  basedIn: "Beijing, China",
+  availability: "Available for selected projects",
   services: [
     {
       title: "Brand Narrative",
@@ -143,6 +172,23 @@ export const siteConfig = {
         "现在先有一个强而稳定的首页，后面再慢慢补齐真实案例、经历和更完整的内容深度。",
     },
   ] satisfies Principle[],
+  socials: [
+    {
+      label: "Email",
+      href: "mailto:hi@edie.live",
+      note: "主联系入口",
+    },
+    {
+      label: "GitHub",
+      href: "https://github.com/eidewang",
+      note: "开源项目",
+    },
+    {
+      label: "LinkedIn",
+      href: "https://linkedin.com/in/eidewang",
+      note: "职业资料",
+    },
+  ] satisfies SocialLink[],
 };
 
 export const milestones = [
@@ -367,3 +413,97 @@ export const projects = [
 export function getProjectBySlug(slug: string) {
   return projects.find((project) => project.slug === slug);
 }
+
+// ── New homepage data ──────────────────────────────────────────────────────
+
+export const experiences: Experience[] = [
+  {
+    period: "2024 — Now",
+    title: "",
+    company: "Ahacreator · AI 营销协作平台",
+    companyIconColor: "#FF6B35",
+    companyIconLetter: "A",
+    description:
+      "主导 AI 营销协作平台的整体体验设计，构建品牌从营销策略生成到达人匹配与合作推进的完整产品流程。通过设计 AI 驱动的营销决策与达人匹配机制，实现品牌与创作者匹配效率提升至 90%，并在产品发布 24 小时内促成 $213,500 美元收入。",
+  },
+  {
+    period: "2023 — 2024",
+    title: "",
+    company: "Workflos.ai · AI 驱动的 SaaS 管理工具",
+    companyIconColor: "#4CAF50",
+    companyIconLetter: "W",
+    description:
+      "负责 AI SaaS 管理平台的产品体验设计，从 0 到 1 构建核心功能与设计系统，支持企业优化软件成本决策。产品上线获得 Product Hunt 单日第二名，并成功获取首批海外客户。",
+  },
+  {
+    period: "2020 — 2022",
+    title: "",
+    company: "Authing 2.0 · 身份认证与用户管理平台",
+    companyIconColor: "#2196F3",
+    companyIconLetter: "Au",
+    description:
+      "主导 Authing 2.0 产品体验升级，搭建设计系统并统一交互规范，提升产品一致性与设计效率。上线两个月内，用户 NPS 提升超过 30%，整体体验显著优化。",
+  },
+];
+
+export const workflowTools: WorkflowTool[] = [
+  { name: "Figma", emoji: "🎨", bg: "#F24E1E" },
+  { name: "Framer", emoji: "F", bg: "#0055FF" },
+  { name: "Notion", emoji: "📝", bg: "#000000" },
+  { name: "Linear", emoji: "◈", bg: "#5E6AD2" },
+  { name: "Raycast", emoji: "✦", bg: "#FF6363" },
+  { name: "ChatGPT", emoji: "★", bg: "#10A37F" },
+  { name: "GitHub", emoji: "⌥", bg: "#24292e" },
+  { name: "Spotify", emoji: "♪", bg: "#1DB954" },
+];
+
+export const ventures: Venture[] = [
+  {
+    name: "Design Resources",
+    description: "Curated Design Template Store",
+    url: "#",
+    iconBg: "#f0f0f0",
+    iconText: "⌘",
+  },
+  {
+    name: "Best Websites",
+    description: "Website Directory",
+    url: "#",
+    iconBg: "#FFF3CD",
+    iconText: "🌐",
+  },
+  {
+    name: "Great Fonts",
+    description: "Font Directory",
+    url: "#",
+    iconBg: "#E8F5E9",
+    iconText: "+",
+  },
+];
+
+export const writings: Writing[] = [
+  { date: "21/02/25", title: "How to think like both a designer & engineer", readTime: "2 m" },
+  { date: "16/02/25", title: "UI Performance", readTime: "4 m" },
+  { date: "12/02/25", title: "How AI is changing my workflow", readTime: "2 m" },
+  { date: "11/01/25", title: "Design tokens 101", readTime: "2 m" },
+  { date: "01/01/25", title: "Hello world", readTime: "1 m" },
+];
+
+export const personalSection: PersonalSection = {
+  text: "In my spare time, I enjoy listening to music and taking photos with my camera.",
+  spotify: {
+    trackName: "Luna",
+    artist: "Pascal Schumacher, Echo Collective",
+    albumArtColor: "#2a5c4a",
+    albumArtEmoji: "🌿",
+    url: "#",
+  },
+  instagramUrl: "#",
+};
+
+export const socialLinks: NavSocialLink[] = [
+  { label: "Email", href: "mailto:hi@edie.live", handle: "hi@edie.live" },
+  { label: "X.com", href: "https://x.com/eidewang", handle: "@eidewang" },
+  { label: "GitHub", href: "https://github.com/eidewang", handle: "@eidewang" },
+  { label: "LinkedIn", href: "https://linkedin.com/in/eidewang", handle: "/in/eidewang" },
+];

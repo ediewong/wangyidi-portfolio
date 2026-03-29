@@ -1,8 +1,16 @@
 import type { Metadata } from "next";
-import { SiteFooter } from "@/components/site-footer";
+import { Geist_Mono } from "next/font/google";
 import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
+import { LanguageProvider } from "@/components/language-context";
 import { siteConfig } from "@/lib/site-data";
 import "./globals.css";
+
+const geistMono = Geist_Mono({
+  subsets: ["latin"],
+  variable: "--font-geist-mono",
+  weight: "400",
+});
 
 const baseUrl = siteConfig.siteUrl;
 
@@ -12,27 +20,7 @@ export const metadata: Metadata = {
     default: `${siteConfig.name} | ${siteConfig.role}`,
     template: `%s | ${siteConfig.name}`,
   },
-  description: siteConfig.heroText,
-  keywords: [
-    "portfolio",
-    "作品集网站",
-    "Next.js portfolio",
-    "设计师作品集",
-    "creative developer",
-  ],
-  openGraph: {
-    title: `${siteConfig.name} | ${siteConfig.role}`,
-    description: siteConfig.heroText,
-    url: baseUrl,
-    siteName: siteConfig.name,
-    locale: "zh_CN",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: `${siteConfig.name} | ${siteConfig.role}`,
-    description: siteConfig.heroText,
-  },
+  description: siteConfig.bio,
 };
 
 export default function RootLayout({
@@ -41,14 +29,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="zh-CN">
+    <html lang="zh-CN" className={geistMono.variable}>
       <body>
-        <div className="relative flex min-h-screen flex-col">
-          <div className="pointer-events-none absolute inset-x-0 top-0 h-[26rem] bg-[radial-gradient(circle_at_top,rgba(173,77,46,0.18),transparent_65%)]" />
+        <LanguageProvider>
           <SiteHeader />
-          <div className="relative flex flex-1 flex-col">{children}</div>
+          {children}
           <SiteFooter />
-        </div>
+        </LanguageProvider>
       </body>
     </html>
   );
